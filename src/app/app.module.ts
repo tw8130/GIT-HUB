@@ -11,6 +11,8 @@ import { GitSearchComponent } from './git-search/git-search.component';
 import { GitDetailsComponent } from './git-details/git-details.component';
 import { RepositoryComponent } from './repository/repository.component';
 import { GitFormComponent } from './git-form/git-form.component';
+import { HighlightDirective } from './highlight.directive';
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { GitFormComponent } from './git-form/git-form.component';
     GitSearchComponent,
     GitDetailsComponent,
     RepositoryComponent,
-    GitFormComponent
+    GitFormComponent,
+    HighlightDirective,
+    DateCountPipe
   ],
   imports: [
     BrowserModule,
