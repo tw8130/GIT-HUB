@@ -1,1 +1,18 @@
-<p>repository works!</p>
+<form (keyup)="GetProfile()" #userForm="ngForm">
+    <div class="form-group">
+        <input type="text" placeholder="Search Repositories" [(ngModel)]="userName" name="userName">
+    </div>
+</form>
+
+<div *ngIf="githubService.newRepoData">
+    <h1>Find Repositories</h1>
+    <div class="card">
+        <div class="card-header">
+            <a href="{{repo.repo_url}}" target="blank">{{repo.name</a>
+        </div>
+        <div class="card-body">
+            <p>{{repo.description}}</p>
+            <p>{{repo.clone_url</p>
+        </div>
+    </div>
+</div>

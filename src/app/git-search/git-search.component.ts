@@ -21,14 +21,23 @@ export class GitSearchComponent implements OnInit {
 
   
   constructor( private http:HttpClient ,private githubService:GithubRequestService)  {}
+  GetProfile() {
+    this.githubService.updateUser(this.userName);
+
+    this.githubService.getUsers();
+  this.user= this.githubService.user
+  console.log(this.user);
+
+  this.githubService.getRepo(this.userName);
+  this.usernewData=this.githubService.newRepodata;
+
+  }
+ 
 
   ngOnInit(): void {
+  
     this.githubService.getUsers();
-    this.user= this.githubService.user
-    console.log(this.user)
-
-    this.githubService.getRepo(this.userName);
-    this.usernewData=this.githubService.newRepodata
+    this.user=this.githubService.user
 
     this.githubService.getRepo(this.userName)
     this.repos= this.githubService.repos

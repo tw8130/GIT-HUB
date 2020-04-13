@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Users } from '../users';
 import { Repo } from '../repo';
 
 
@@ -10,7 +9,6 @@ import { Repo } from '../repo';
 })
 export class GitDetailsComponent implements OnInit {
 
-  user:Users;
   repos:Repo;
 
   constructor() { }

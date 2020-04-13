@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import { Users } from './users';
 import {Repo} from './repo';
 import {environment} from '../environments/environment';
-import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
@@ -82,5 +81,9 @@ export class GithubRequestService {
      return promise
    }
 
-}
+   updateUser(userName) {
+    this.userName= userName
+   }
+  }
+
  
