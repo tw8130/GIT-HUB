@@ -11,7 +11,7 @@ import { RepositoryComponent} from '../repository/repository.component';
 // Defining routes
 const routes:Routes =[
   {path:'users?',component:GitSearchComponent},
-  {path:'repo?',component:RepositoryComponent},
+  {path:'repos?',component:RepositoryComponent},
 ];
 
 

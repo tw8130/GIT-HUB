@@ -30,7 +30,7 @@ export class GithubRequestService {
        public_repos:number;
        html_url:string;
      }
-     let promise = new Promise((resolve,reject)=> {
+     const promise = new Promise((resolve,reject)=> {
        this.http.get<ApiResponse>('https://api.github.com/users/' + this.userName + '?access_token' + environment.apiUrl)
        .toPromise().then(response => {
          this.user.login= response.login;
@@ -47,7 +47,6 @@ export class GithubRequestService {
 
        }),
        error => {
-         console.log('An error occurred')
 
          reject(error)
        };
@@ -64,7 +63,7 @@ export class GithubRequestService {
        clone_url:string;
 
      }
-     let promise = new Promise((resolve,reject) => {
+     const promise = new Promise((resolve,reject) => {
        this.http.get<ApiResponse>('https://api.github.com/users/' + this.userName + '/repos?access_token=' + environment.apiUrl)
        .toPromise().then(response_repos => {
          this.newRepodata= response_repos; 
@@ -73,10 +72,9 @@ export class GithubRequestService {
 
        })
        error => {
-         console.log('An error ocurred')
 
          reject(error)
-       }
+       };
      })
      return promise
    }

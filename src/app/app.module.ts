@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
+import {GithubRequestService} from './github-request.service'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { RepositoryComponent } from './repository/repository.component';
 import { GitFormComponent } from './git-form/git-form.component';
 import { HighlightDirective } from './highlight.directive';
 import { DateCountPipe } from './date-count.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +25,18 @@ import { DateCountPipe } from './date-count.pipe';
     RepositoryComponent,
     GitFormComponent,
     HighlightDirective,
-    DateCountPipe
+    DateCountPipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    GithubRequestService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
