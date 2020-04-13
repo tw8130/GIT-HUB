@@ -10,15 +10,15 @@ import { resolve } from 'dns';
 })
 export class GithubRequestService {
   user:Users;
-  repository:Repo;
-  newRepo:any;
+  repos:Repo;
+  newRepodata:any;
   private userName:string;
 
   private accessToken= '8240c99f32a36ba0d7f11905316ba7209ca03545'
 
   constructor(private http:HttpClient) {
     this.user= new Users('','','','','',new Date,0,'');
-    this.repository= new Repo('','',new Date,'','');
+    this.repos= new Repo('','',new Date,'','');
    }
    getUsers() {
      interface ApiResponse {
@@ -56,7 +56,7 @@ export class GithubRequestService {
      return promise;
    }
 
-   getRepo() {
+   getRepo(userName) {
      interface ApiResponse {
        name:string;
        description:string;
@@ -67,8 +67,8 @@ export class GithubRequestService {
      }
      let promise = new Promise((resolve,reject) => {
        this.http.get<ApiResponse>('https://api.github.com/users/' + this.userName + '/repos?access_token=' + environment.apiUrl)
-       .toPromise().then(response_repo => {
-         this.newRepo= response_repo; 
+       .toPromise().then(response_repos => {
+         this.newRepodata= response_repos; 
 
          resolve();
 
