@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { GitSearchComponent } from './git-search/git-search.component';
 import { GitDetailsComponent } from './git-details/git-details.component';
 import { RepositoryComponent } from './repository/repository.component';
+import { GitFormComponent } from './git-form/git-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RepositoryComponent } from './repository/repository.component';
     NavBarComponent,
     GitSearchComponent,
     GitDetailsComponent,
-    RepositoryComponent
+    RepositoryComponent,
+    GitFormComponent
   ],
   imports: [
     BrowserModule,
