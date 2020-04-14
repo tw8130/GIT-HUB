@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Users } from '../users';
+import { User } from '../user';
 import { Repo } from '../repo';
+// import {environment} from '../environments/environment';
 import { GithubRequestService} from './../github-request.service'
+
+
 
 
 
@@ -12,35 +15,96 @@ import { GithubRequestService} from './../github-request.service'
   styleUrls: ['./git-search.component.css']
 })
 export class GitSearchComponent implements OnInit {
-  user:Users;
-  repos:Repo;
-  userName:string;
-  usernewData:any;
-
+  public searchMe = 'tw8130';
+  public githubUser: string;
+  
+  users: User ;
+  repository: Repo;
+  public searchRepo: string;
+  public resultCount = 12;
+  
+  
+  findUser(username) {
+      this.githubUser = '';
+      this.searchMe  = username;
+      this.ngOnInit();
+  }
+  
 
 
   
-  constructor( private http:HttpClient ,private githubService:GithubRequestService)  {}
-  GetProfile() {
-    this.githubService.updateUser(this.userName);
+  constructor( private http:HttpClient ,private githubService:GithubRequestService,public userRepos: GithubRequestService )  {}
 
-    this.githubService.getUsers();
-  this.user= this.githubService.user
-  console.log(this.user);
-
-  this.githubService.getRepo(this.userName);
-  this.usernewData=this.githubService.newRepodata;
-
-  }
- 
 
   ngOnInit(): void {
-  
-    this.githubService.getUsers();
-    this.user=this.githubService.user
-
-    this.githubService.getRepo(this.userName)
-    this.repos= this.githubService.repos
+    this.githubService.githubUser(this.searchMe);
+      this.users = this.githubService.users;
+      this.userRepos.gitUserRepos(this.searchMe);
+      console.log(this.userRepos);
   }
+  searchRepos() {
+    this.searchRepo = '';
+    this.resultCount = 10;
 
 }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this.githubService.getUsers();
+//     this.user=this.githubService.user
+
+//     this.githubService.getRepo(this.userName)
+//     this.repos= this.githubService.repos
+//   }
+
+// GetProfile() {
+//   this.githubService.updateUser(this.userName);
+
+//   this.githubService.getUsers();
+// this.user= this.githubService.user
+// console.log(this.user);
+
+// this.githubService.getRepo(this.userName);
+// this.usernewData=this.githubService.newRepodata;
+
+// }

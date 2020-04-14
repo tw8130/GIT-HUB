@@ -1,87 +1,95 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Users } from './users';
-import {Repo} from './repo';
+import { User } from './user';
 import {environment} from '../environments/environment';
+import { Repo } from './repo';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubRequestService {
-  user:Users;
-  repos:Repo;
-  newRepodata:any;
-  private userName:string;
-
+  repository: Repo;
+  users: User;
+  newRepository: any;
+  searchRepo: any;
+ 
   private accessToken= '8240c99f32a36ba0d7f11905316ba7209ca03545'
-
-  constructor(private http:HttpClient) {
-    this.user= new Users('','','','','',new Date,0,'');
-    this.repos= new Repo('','',new Date,'','');
-   }
-   getUsers() {
-     interface ApiResponse {
-       login:string;
-       bio:string;
-       avatar_url:string;
-       followers_url:string;
-       following_url:string;
-       created_at:Date;
-       public_repos:number;
-       html_url:string;
-     }
-     const promise = new Promise((resolve,reject)=> {
-       this.http.get<ApiResponse>('https://api.github.com/users/' + this.userName + '?access_token' + environment.apiUrl)
-       .toPromise().then(response => {
-         this.user.login= response.login;
-         this.user.bio= response.bio;
-         this.user.avatar_url= response.avatar_url;
-         this.user.followers_url= response.followers_url;
-         this.user.following_url= response.following_url;
-         this.user.created_at= response.created_at;
-         this.user.public_repos= response.public_repos;
-         this.user.html_url= response.html_url;
-         console.log(this.user);
-
-         resolve()
-
-       }),
-       error => {
-
-         reject(error)
-       };
-     })
-     return promise;
+   constructor(private http:HttpClient) {
+    this.repository = new Repo('','',new Date(),'','');
+    this.users = new User('','','','','',new Date(),0,'');
    }
 
-   getRepo(userName) {
-     interface ApiResponse {
-       name:string;
-       description:string;
-       updated_at:Date;
-       repo_url:string;
-       clone_url:string;
 
-     }
-     const promise = new Promise((resolve,reject) => {
-       this.http.get<ApiResponse>('https://api.github.com/users/' + this.userName + '/repos?access_token=' + environment.apiUrl)
-       .toPromise().then(response_repos => {
-         this.newRepodata= response_repos; 
+   githubUser(searchName) {
+    interface ApiResponse {
+        html_url: string;
+        description: string;
+        created_at: Date;
+        login: string;
+        public_repos: number;
+        followers_url: string;
+        following_url: string;
+        avatar_url: string;
+        bio:string
+    }
 
-         resolve();
+    const promise = new Promise((resolve) => {
+        this.http.get<ApiResponse>('https://api.github.com/users/' + searchName + '?access_token=' + environment.apiUrl).toPromise().then(getResponse => {
+            this.users.bio = getResponse.bio;
+            this.users.html_url = getResponse.html_url;
+            this.users.login = getResponse.login;
+            this.users.avatar_url = getResponse.avatar_url;
+            this.users.public_repos = getResponse.public_repos;
+            this.users.created_at = getResponse.created_at;
+            this.users.followers_url = getResponse.followers_url;
+            this.users.following_url = getResponse.following_url;
+            resolve();
+        },);
+    });
+    return promise;
 
-       })
-       error => {
+}
 
-         reject(error)
-       };
-     })
-     return promise
-   }
+gitUserRepos(searchMe) {
+    interface ApiResponse {
+        name: string;
+        description: string;
+        updated_at: Date;
+        repo_url:string;
+        clone_url:string;
+    }
 
-   updateUser(userName) {
-    this.userName= userName
-   }
+    const myPromise = new Promise((resolve, reject) => {
+        this.http.get<ApiResponse>('https://api.github.com/users/' + searchMe + '/repos?order=created&sort=asc?access_token=' + environment.apiUrl).toPromise().then(getRepoResponse => {
+            this.newRepository = getRepoResponse;
+            resolve();
+        }, error => {
+            reject(error);
+        });
+    });
+    return myPromise;
+}
+
+
+gitRepos(searchName) {
+    interface ApiResponse {
+        items: any;
+    }
+
+    const promise = new Promise((resolve, reject) => {
+        this.http.get<ApiResponse>('https://api.github.com/search/repositories?q=' + searchName + ' &per_page=10 ' + environment.apiUrl).toPromise().then(getRepoResponse => {
+            this.searchRepo = getRepoResponse.items;
+
+            resolve();
+        }, error => {
+            this.searchRepo = 'error';
+            reject(error);
+        });
+    });
+    return promise;
+}
+   
   }
 
  

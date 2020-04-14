@@ -1,20 +1,35 @@
-<form (keyup)="GetProfile()" #userForm="ngForm">
-    <div class="form-group">
-        <input type="text" placeholder="Search Repositories" [(ngModel)]="userName" name="userName">
+<div class="container">
+    <div class="row ">
+    <div class="col-md-9 text-center">
+      <app-search-form (getName)='searchRepos($event)'></app-search-form>
     </div>
-</form>
-<!-- 
-<div *ngIf="githubService.newRepoData"> -->
-    <h1>Find Repositories</h1>
-    <div *ngIf='let repos of githubService.newRepoData'>
-        <div class="card">
-            <div class="card-header">
-                <a href="{{repos.repo_url}}" target="blank">{{repos.name</a>
-            </div>
-            <div class="card-body">
-                <p>{{repos.description}}</p>
-                <p>{{repos.clone_url}}</p>
-            </div>
+  </div>
+  <div class="row">
+    <div class="col-md-11">
+      <div >
+        <div class="table">
+          <table class="table">
+            <tbody>
+             <tr *ngFor=" let repository of gitRepoRequest.searchRepo" >
+              <td>
+                <h4>
+                  <a style="text-align: center" href="{{repo.html_url}} " >{{repository.name}}</a>
+                </h4>
+                <p > Repository Owner:
+                  <a href="{{repo.html_url}}">{{repository.owner.login}}</a>
+                </p>
+                <p>Date Created : {{repository.created_at|date}}</p>
+                <p>Description : {{repository.description}}</p>
+                <li appHighlight >Clone at:{{repository.clone_url</li>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
         </div>
+      </div>
     </div>
-<!-- </div> -->
+
+  </div>
+</div>
+
