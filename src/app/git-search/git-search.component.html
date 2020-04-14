@@ -1,4 +1,4 @@
- <div class="container">
+ <div class="container" >
   <div class="row ">
     <div class="col-md-12">
       <app-git-form (getName)='findUser($event)'></app-git-form>
@@ -51,7 +51,7 @@
           <tbody>
           <tr *ngFor='let repository of userRepos.newRepository'>
             <td>
-                <a href="{{repository.html_url}}" target="_blank" >{{repository.name}}</a>
+                <a href="{{repository.html_url}}" target="_blank" >View project at:{{repository.name}}</a>
 
                 <br>
               <p class="desc">Description: {{repository.description}}</p>
@@ -60,7 +60,7 @@
               <br>
               <p>Updated at:{{repository.updated_at | dateCount}}</p>
               <br>
-              <p appHighlight>Clone at: {{repository.clone_url}}</p>
+              <a appHighlight href="{{repository.clone_url}}">Clone at: {{repository.clone_url}}</a>
             </td>
           </tr>
           </tbody>

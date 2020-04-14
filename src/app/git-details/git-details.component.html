@@ -1,18 +1,6 @@
-<!-- <p>
-    Name:{{repos.name}}
-</p>
-<p>Updated: {{repos.updated_at}} ago</p>
-<p>
-    Description: {{repos.description}}
-</p>
-<p>
-    Clone at: {{repos.clone_url}}
-</p>
-
-<img  src='{{users.avatar_url}}'>
-    <p>Following {{user.followers}}</p>
-    <p>Following {{user.following}}</p>
-    <p>Date created {{user.created_at}}</p>
-    <p>User {{user.login}}</p>
-    <p>public repos {{user.public_repos}}</p> -->
-
+<form (ngSubmit)="searchFor(searchForm)" #searchForm="ngForm">
+    <div class="form-group">
+      <input type="text" class="form-control" name="find" placeholder="Enter repository"[(ngModel)]= "searchInfo.find"  #find='ngModel'>
+      <button type="submit" class="btn btn-group"> Search</button>
+    </div>
+  </form>

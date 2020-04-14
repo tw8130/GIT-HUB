@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Repo } from '../repo';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import {Search} from '../git-form/search';
 
 
 @Component({
@@ -8,8 +8,16 @@ import { Repo } from '../repo';
   styleUrls: ['./git-details.component.css']
 })
 export class GitDetailsComponent implements OnInit {
+  searchInfo = new Search('');
+    @Output() getName = new EventEmitter<Search>();
 
-  repos:Repo;
+    searchFor(data){
+        this.getName.emit(data.value.find);
+        console.log(data.value.find)
+        data.reset();
+    }
+
+ 
 
   constructor() { }
 
