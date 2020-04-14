@@ -15,7 +15,7 @@ import { GithubRequestService} from './../github-request.service'
   styleUrls: ['./git-search.component.css']
 })
 export class GitSearchComponent implements OnInit {
-  public searchMe = 'tw8130';
+  public searchMe = '';
   public githubUser: string;
   
   users: User ;

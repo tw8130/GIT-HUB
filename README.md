@@ -1,6 +1,14 @@
-# Github
+## PROJECT-ANGULAR APP
+ This is a project about making an app like that of Github website.
+## AUTHOR:
+By Tabitha Wanjiku
+## DESCRIPTION:
+The project you create an app using angular CLI.You also create a form that you can enter someones github username to see their repositories.The form also should be able to search for other people's username and search also for repositories.
+# SET-UP INSTRUCTIONS
+You:
+.First create a Github repo
+.Click on the active site to view the project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
 ## Development server
 
@@ -14,14 +22,31 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## LINK TO LIVE SITE:
+Here is my link to my project.
+<a href="https://tw8130.github.io/IP-1-Quote/">View</a>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Behaviour Driven Development(BDD)
+Input                      |                      Output
+--------------------------------------------------------------------------------------	               
 
-## Running end-to-end tests
+User clicks Submit       |	Git form displays with input fields username and also repos
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## KNOWN BUGS:
+Any bugs noted you can email me for clarification.
+## TECHNOLOGIES USED:
+.Angular CLI
+.Bootstrap
+## CONTACT INFO:
+You can email at:mwangitabitha2020@gmail.com
+## LICENSE:
+MIT License
 
-## Further help
+Copyright (c) [2020] Tabitha Wanjiku]
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

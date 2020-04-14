@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row ">
     <div class="col-md-9 text-center">
-      <app-search-form (getName)='searchRepos($event)'></app-search-form>
+      <app-git-form (getName)='searchRepos($event)'></app-git-form>
     </div>
   </div>
   <div class="row">
@@ -10,13 +10,13 @@
         <div class="table">
           <table class="table">
             <tbody>
-             <tr *ngFor=" let repository of gitRepoRequest.searchRepo" >
+             <tr *ngFor=" let repository of githubService.searchRepo" >
               <td>
                 <h4>
-                  <a style="text-align: center" href="{{repo.html_url}} " >{{repository.name}}</a>
+                  <a style="text-align: center" href="{{repository.repo_url}} " >{{repository.name}}</a>
                 </h4>
-                <p > Repository Owner:
-                  <a href="{{repo.html_url}}">{{repository.owner.login}}</a>
+                <p >
+                  <a href="{{repository.repo_url}}">Check out on Github</a>
                 </p>
                 <p>Date Created : {{repository.created_at|date}}</p>
                 <p>Description : {{repository.description}}</p>

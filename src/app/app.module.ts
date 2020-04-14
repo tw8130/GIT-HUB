@@ -6,7 +6,9 @@ import {HttpClientModule} from '@angular/common/http'
 // import { NgProgressModule } from '@ngx-progressbar/core';
 // import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
+import {RoutingModule} from './routing/routing.module';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { GitSearchComponent } from './git-search/git-search.component';
@@ -31,9 +33,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
+    RoutingModule,
+     RouterModule,
+     FormsModule,
     HttpClientModule,
+    // AppRoutingModule,
   ],
   providers: [
     GithubRequestService
