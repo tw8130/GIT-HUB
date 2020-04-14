@@ -24,7 +24,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## LINK TO LIVE SITE:
 Here is my link to my project.
-<a href="">View</a>
+<a href="https://tw8130.github.io/GIT-HUB/">View</a>
 
 # Behaviour Driven Development(BDD)
 Input                      |                      Output
