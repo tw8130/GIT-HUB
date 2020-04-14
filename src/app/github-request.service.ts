@@ -16,8 +16,8 @@ export class GithubRequestService {
  
   private accessToken= '8240c99f32a36ba0d7f11905316ba7209ca03545'
    constructor(private http:HttpClient) {
-    this.repository = new Repo('','',new Date(),'','');
-    this.users = new User('','','','','',new Date(),0,'');
+    this.repository = new Repo('','',new Date(),'','','');
+    this.users = new User('','','',0,0,new Date(),0,'');
    }
 
 
@@ -28,8 +28,8 @@ export class GithubRequestService {
         created_at: Date;
         login: string;
         public_repos: number;
-        followers_url: string;
-        following_url: string;
+        followers: number;
+        following: number;
         avatar_url: string;
         bio:string
     }
@@ -42,8 +42,8 @@ export class GithubRequestService {
             this.users.avatar_url = getResponse.avatar_url;
             this.users.public_repos = getResponse.public_repos;
             this.users.created_at = getResponse.created_at;
-            this.users.followers_url = getResponse.followers_url;
-            this.users.following_url = getResponse.following_url;
+            this.users.followers = getResponse.followers;
+            this.users.following = getResponse.following;
             resolve();
         },);
     });
@@ -58,6 +58,7 @@ gitUserRepos(searchMe) {
         updated_at: Date;
         repo_url:string;
         clone_url:string;
+        html_url:string;
     }
 
     const myPromise = new Promise((resolve, reject) => {

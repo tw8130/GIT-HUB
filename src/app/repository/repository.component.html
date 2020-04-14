@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row ">
-    <div class="col-md-9 text-center">
-      <app-git-form (getName)='searchRepos($event)'></app-git-form>
-    </div>
+        <!-- <input class="form-control" type="text" placeholder="Search" 
+           #searchRepositories
+          (keyup.enter)="search(searchText.value)">
+    -->
   </div>
   <div class="row">
     <div class="col-md-11">
@@ -16,11 +17,11 @@
                   <a style="text-align: center" href="{{repository.repo_url}} " >{{repository.name}}</a>
                 </h4>
                 <p >
-                  <a href="{{repository.repo_url}}">Check out on Github</a>
+                  <a href="{{repository.html_url}}">Check out on Github</a>
                 </p>
                 <p>Date Created : {{repository.created_at|date}}</p>
                 <p>Description : {{repository.description}}</p>
-                <li appHighlight >Clone at:{{repository.clone_url</li>
+                <li appHighlight  href="repository.clone_url">Clone: {{repository.clone_url}}</li>
               </td>
             </tr>
             </tbody>

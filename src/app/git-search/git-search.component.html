@@ -25,11 +25,11 @@
           </tr>
           <tr>
             <th scope="row">Followers:</th>
-            <td>{{users.followers_url}}</td>
+            <td>{{users.followers}}</td>
           </tr>
           <tr>
             <th scope="row">Following</th>
-            <td>{{users.following_url}}</td>
+            <td>{{users.following}}</td>
           </tr>
 
           </tbody>
@@ -51,16 +51,16 @@
           <tbody>
           <tr *ngFor='let repository of userRepos.newRepository'>
             <td>
-                <a href="{{repository.repo_url}}" target="_blank" >{{repository.name}}</a>
+                <a href="{{repository.html_url}}" target="_blank" >{{repository.name}}</a>
 
                 <br>
               <p class="desc">Description: {{repository.description}}</p>
               <br>
               <p>Date Created: {{repository.created_at | date}}</p>
               <br>
-              <p>Updated at:{{repository.updated_at| dateCount</p>
+              <p>Updated at:{{repository.updated_at | dateCount}}</p>
               <br>
-              <p appHighlight>{{repository.clone_url}}</p>
+              <p appHighlight>Clone at: {{repository.clone_url}}</p>
             </td>
           </tr>
           </tbody>

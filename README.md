@@ -24,13 +24,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## LINK TO LIVE SITE:
 Here is my link to my project.
-<a href="https://tw8130.github.io/IP-1-Quote/">View</a>
+<a href="">View</a>
 
 # Behaviour Driven Development(BDD)
 Input                      |                      Output
 --------------------------------------------------------------------------------------	               
 
-User clicks Submit       |	Git form displays with input fields username and also repos
+User hits enter on search space       |	Git form displays with input fields username and also repos
 
 ## KNOWN BUGS:
 Any bugs noted you can email me for clarification.

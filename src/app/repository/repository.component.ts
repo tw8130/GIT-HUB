@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+// import {HttpClient} from '@angular/common/http';
 import { Repo } from '../repo';
 import { GithubRequestService} from './../github-request.service'
 
@@ -18,7 +18,7 @@ export class RepositoryComponent implements OnInit {
       this.resultCount = 10;
       this.getDataFunction();
   }
-  constructor(public  githubService:GithubRequestService,private http:HttpClient) { }
+  constructor(public  githubService:GithubRequestService) { }
   
 
   ngOnInit(): void {
