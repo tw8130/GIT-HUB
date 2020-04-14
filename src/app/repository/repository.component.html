@@ -21,7 +21,7 @@
                 </p>
                 <p>Date Created : {{repository.created_at|date}}</p>
                 <p>Description : {{repository.description}}</p>
-                <li appHighlight  href="repository.clone_url">Clone: {{repository.clone_url}}</li>
+                <a appHighlight  href="{{repository.clone_url}}">Clone: {{repository.clone_url}}</a>
               </td>
             </tr>
             </tbody>
